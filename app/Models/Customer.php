@@ -22,4 +22,15 @@ class Customer
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         return $row ?: null;
     }
+
+    public static function create(string $full_name, string $email, string $phone, string $country): bool {
+        $pdo = Database::connect();
+        $stmt = $pdo->prepare("INSERT INTO customers (full_name, email, phone, country) VALUES (:full_name, :email, :phone, :country)");
+        return $stmt->execute([
+            'full_name' => $full_name,
+            'email' => $email,
+            'phone' => $phone,
+            'country' => $country
+        ]);
+    }
 }

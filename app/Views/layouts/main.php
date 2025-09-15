@@ -15,6 +15,9 @@
     <main>
         <?= $content // isi dari view yang telah di-buffer ?>
     </main>
+    <a href="/?route=customers/create">
+    <button type="button">Tambah User</button>
+    </a>
 
     <footer>
         <p>Footer &copy; <?= date('Y') ?></p>
